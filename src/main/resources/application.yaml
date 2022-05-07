@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: ead-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/brandaogabriel/ead-config-server-repo
+          default-label: main
+          username: ${GIT_USERNAME}
+          password: ${GIT_PERSONAL_ACCESS_TOKEN}
+
+eureka:
+  client:
+    service-url:
+      default-zone: 'http://localhost:8761/eureka'
+  instance:
+    hostname: localhost
