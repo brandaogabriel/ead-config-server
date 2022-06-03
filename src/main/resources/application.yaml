@@ -1,29 +1,5 @@
-server:
-  port: 8888
-
 spring:
+  profiles:
+    active: dev
   application:
     name: ead-config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/brandaogabriel/ead-config-server-repo
-          default-label: main
-          username: ${GIT_USERNAME}
-          password: ${GIT_PERSONAL_ACCESS_TOKEN}
-
-ead:
-  serviceRegistry:
-    username: serviceregistry
-    password: 'ead123sr'
-  configServer:
-    username: configserver
-    password: 'ead123cs'
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
-  instance:
-    hostname: localhost
